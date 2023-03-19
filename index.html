@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Verbovskiy Alex</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+  <script type="text/babel">
+    const certifications = [
+        { name: "AWS Certified Solutions Architect - Associate", argument: "Ця сертифікація допоможе мені перевірити мої знання про розробку та розгортання масштабованих, високодоступних і відмовостійких систем на AWS." },
+        { name: "Google Certified Professional Cloud Architect", argument: "Ця сертифікація допоможе мені підтвердити мої знання щодо проектування, розробки та керування масштабованими та безпечними бізнес-рішеннями на Google Cloud Platform." },
+        { name: "Microsoft Certified: Azure Solutions Architect Expert", argument: "Ця сертифікація допоможе мені перевірити мої знання про розробку та впровадження рішень, які працюють у Microsoft Azure, зокрема обчислень, мереж, сховищ і служб безпеки." }
+      ];
+
+      function createCertificationList(certifications) {
+        console.log(certifications.flatMap)
+        const certificationList = document.createElement("ul");
+        certifications.flatMap(certification => [
+          document.createElement("li").appendChild(document.createTextNode(certification.name)),
+          document.createElement("p").appendChild(document.createTextNode(certification.argument)),
+          document.createElement("br")
+      ]).forEach(element => certificationList.appendChild(element));
+        return certificationList;
+      }
+
+
+      const myInterval = setInterval(()=>{
+        const certificationsContainer = document.getElementById("certifications");
+        if(!certificationsContainer) return;
+        clearInterval(myInterval);
+        console.log("work")
+        certificationsContainer.appendChild(createCertificationList(certifications));
+      }, 100)
+  </script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    li {
+      margin-bottom: 1em;
+      font-weight: bold;
+    }
+
+    p {
+      margin-top: 0;
+      margin-bottom: 2em;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Олександр Вербовський</h1>
+  <p>Напрямок за яким планую розвиватись:</p>
+  <ul>
+    <li>Хмарні обчислення</li>
+    <li>Машинне навчання</li>
+    <li>Блокчейн</li>
+  </ul>
+  <p>Сертифікація яку планую складати:</p>
+  <div id="certifications"></div>
+</body>
+
+</html>
